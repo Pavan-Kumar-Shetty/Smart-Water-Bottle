@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AQUAMINDER Premium Scroll Story</title>
+
+<style>
+:root {
+  --bg: #05070b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --purple: #a855f7;
+  --blue: #3b82f6;
+  --green: #10b981;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(5,7,11,0.45), rgba(5,7,11,0.72)),
+    url('aquaminder-hero.jpg') center / cover no-repeat;
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  background: linear-gradient(90deg, white, var(--purple), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+/* LAYOUT */
+.story-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 5%;
+}
+
+.text-column { padding: 60px 0; }
+
+.panel {
+  border-left: 1px solid rgba(255,255,255,0.06);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0 60px 24px;
+}
+
+.panel h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 16px;
+}
+
+.panel p {
+  color: var(--muted);
+  max-width: 500px;
+}
+
+/* BOTTLE */
+.bottle-column {
+  position: relative;
+}
+
+.sticky-bottle {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-bottle img {
+  width: min(34vw, 420px);
+  transition: all 0.6s ease;
+}
+
+/* MOBILE BOTTLES */
+.mobile-bottle {
+  display: none;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 16px 40px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, var(--green), #059669);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+  .story-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .bottle-column {
+    display: none;
+  }
+
+  .panel {
+    min-height: auto;
+    padding: 40px 0;
+    border-left: none;
+    text-align: center;
+  }
+
+  .mobile-bottle {
+    display: block;
+    width: 180px;
+    margin: 20px auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .mobile-bottle.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div>
+    <h1>AQUAMINDER</h1>
+    <p>Scroll to experience a cinematic product journey</p>
+    <a href="#story" class="btn">Explore Features</a>
+  </div>
+</section>
+
+<section class="story-wrap" id="story">
+  <div class="text-column">
+
+    <section class="panel" data-image="blue-bottle.png">
+      <h2>RGB Glow</h2>
+      <img src="blue-bottle.png" class="mobile-bottle">
+      <p>Smart hydration reminders.</p>
+    </section>
+
+    <section class="panel" data-image="purple-bottle.png">
+      <h2>App Connectivity</h2>
+      <img src="purple-bottle.png" class="mobile-bottle">
+      <p>Track your hydration.</p>
+    </section>
+
+    <section class="panel" data-image="red-bottle.png">
+      <h2>15-Day Battery</h2>
+      <img src="red-bottle.png" class="mobile-bottle">
+      <p>Long-lasting performance.</p>
+    </section>
+
+    <section class="panel" data-image="blue-bottle.png">
+      <h2>Thermal Control</h2>
+      <img src="blue-bottle.png" class="mobile-bottle">
+      <p>24h cold / 12h hot.</p>
+    </section>
+
+  </div>
+
+  <div class="bottle-column">
+    <div class="sticky-bottle">
+      <img id="mainBottle" src="blue-bottle.png" />
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Upgrade Your Hydration</h2>
+  <a href="https://wa.me/919741471267" class="btn">Order Now</a>
+</section>
+
+<script>
+if (window.innerWidth > 900) {
+
+  const bottle = document.getElementById('mainBottle');
+  const panels = document.querySelectorAll('.panel');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const newImage = entry.target.dataset.image;
+
+        bottle.style.opacity = '0';
+
+        setTimeout(() => {
+          bottle.src = newImage;
+          bottle.style.opacity = '1';
+        }, 250);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  panels.forEach(panel => observer.observe(panel));
+}
+
+/* MOBILE FADE */
+if (window.innerWidth <= 900) {
+  const imgs = document.querySelectorAll('.mobile-bottle');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  imgs.forEach(img => obs.observe(img));
+}
+</script>
+
+</body>
+</html>
