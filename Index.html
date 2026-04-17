@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AQUAMINDER Premium Scroll Story</title>
+  <style>
+    :root {
+      --bg: #05070b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --purple: #a855f7;
+      --blue: #3b82f6;
+      --green: #10b981;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      background: #05070b;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(5,7,11,0.45), rgba(5,7,11,0.72)),
+        url('aquaminder-hero.jpg') center center / cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero > div {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      background: linear-gradient(90deg, white, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      line-height: 1.7;
+      margin-inline: auto;
+    }
+
+    .story-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1400px;
+      margin: auto;
+      padding: 0 5%;
+    }
+
+    .text-column { padding: 60px 0; }
+
+    .panel {
+      position: relative;
+      border-left: 1px solid rgba(255,255,255,0.06);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0 60px 24px;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 50%;
+      width: 3px;
+      height: 120px;
+      transform: translateY(-50%);
+      background: linear-gradient(to bottom, #3b82f6, #a855f7);
+      border-radius: 999px;
+      opacity: 0.8;
+    }
+
+    .panel h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 16px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      max-width: 500px;
+    }
+
+    .bottle-column {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .sticky-bottle {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sticky-bottle img {
+      width: min(34vw, 420px);
+      max-width: 100%;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      filter: drop-shadow(0 20px 50px rgba(59,130,246,0.25));
+    }
+
+    .cta {
+      text-align: center;
+      padding: 120px 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 16px 40px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, var(--green), #059669);
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 900px) {
+      .story-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .bottle-column {
+        order: -1;
+        min-height: auto;
+      }
+
+      .sticky-bottle {
+        position: sticky;
+        top: 0;
+        height: 60vh;
+        background: linear-gradient(to bottom, rgba(5,7,11,0.95), rgba(5,7,11,0.75));
+        z-index: 10;
+      }
+
+      .sticky-bottle img {
+        width: min(55vw, 260px);
+      }
+
+      .panel {
+        min-height: 70vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div>
+      <h1>AQUAMINDER</h1>
+      <p>Scroll to experience a cinematic product journey where the bottle evolves through features, colors, and moods as the story unfolds.</p>
+      <a href="#story" class="btn">Explore Features</a>
+    </div>
+  </section>
+
+  <section class="story-wrap" id="story">
+    <div class="text-column">
+      <section class="panel" data-image="blue-bottle.png">
+        <h2>RGB Glow + Smart Reminders</h2>
+        <p>Adaptive LED hydration reminders with customizable glow timing, silent mode, and gentle sound alerts so you never miss a sip.</p>
+      </section>
+
+      <section class="panel" data-image="purple-bottle.png">
+        <h2>Bluetooth App Connectivity</h2>
+        <p>Connect seamlessly to the Aquaminder app for hydration logs, personalized reminder intervals, daily goals, and wellness sync.</p>
+      </section>
+
+      <section class="panel" data-image="red-bottle.png">
+        <h2>15-Day Battery + USB-C</h2>
+        <p>Engineered for endurance with up to 15 days of battery life and fast USB-C charging designed for modern everyday carry.</p>
+      </section>
+
+      <section class="panel" data-image="blue-bottle.png">
+        <h2>24H Cold • 12H Hot</h2>
+        <p>Premium SS304 vacuum insulation keeps water ice cold for 24 hours and hot beverages warm for 12 hours.</p>
+      </section>
+
+      <section class="panel" data-image="purple-bottle.png">
+        <h2>Premium Materials</h2>
+        <p>BPA-free, food-safe SS304 stainless steel body with luxury matte finish, sweat-resistant texture, and 1-year warranty assurance.</p>
+      </section>
+    </div>
+
+    <div class="bottle-column">
+      <div class="sticky-bottle">
+        <img id="mainBottle" src="blue-bottle.png" alt="Aquaminder bottle" />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 style="font-size: clamp(2rem, 5vw, 4rem);">Upgrade Your Hydration Ritual</h2>
+    <p style="color:#94a3b8; margin-top:12px; max-width:700px; margin-inline:auto;">RGB reminders, Bluetooth intelligence, 15-day battery, USB-C charging, SS304 steel, and all-day thermal performance — crafted into one cinematic smart bottle.</p>
+    <a href="https://wa.me/919741471267" class="btn">Order on WhatsApp</a>
+  </section>
+
+  <script>
+    const bottle = document.getElementById('mainBottle');
+    const sectionColors = ['#06111f','#140a24','#1a0b0b','#07131a','#12091c'];
+    const panels = document.querySelectorAll('.panel');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const newImage = entry.target.dataset.image;
+          const index = [...panels].indexOf(entry.target);
+
+          document.body.style.background =
+            `radial-gradient(circle at top, ${sectionColors[index] || '#05070b'}, #05070b 60%)`;
+
+          bottle.style.opacity = '0';
+          bottle.style.transform = 'translateY(40px) scale(0.96)';
+
+          setTimeout(() => {
+            bottle.src = newImage;
+            bottle.style.opacity = '1';
+            bottle.style.transform = 'translateY(0) scale(1)';
+          }, 250);
+        }
+      });
+    }, { threshold: 0.55 });
+
+    panels.forEach(panel => observer.observe(panel));
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY * 0.08;
+      bottle.style.transform = `translateY(${y > 40 ? 40 : y}px)`;
+    });
+  </script>
+</body>
+</html>
