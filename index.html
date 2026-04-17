@@ -167,6 +167,54 @@ body {
     transform: translateY(0);
   }
 }
+.footer {
+  background: #03050a;
+  padding: 80px 24px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.footer h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #fff, #a855f7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-tagline {
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #a855f7;
+}
+
+.footer-copy {
+  color: #64748b;
+  font-size: 0.85rem;
+}
 </style>
 </head>
 
@@ -220,7 +268,26 @@ body {
   <h2>Upgrade Your Hydration</h2>
   <a href="https://wa.me/919741471267" class="btn">Order Now</a>
 </section>
+<footer class="footer">
+  <div class="footer-container">
 
+    <h3>AQUAMINDER</h3>
+    <p class="footer-tagline">
+      Smart hydration. Premium lifestyle.
+    </p>
+
+    <div class="footer-links">
+      <a href="#story">Features</a>
+      <a href="https://wa.me/919741471267">Order</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <p class="footer-copy">
+     Pavan Kumar © 2026 Aquaminder. All rights reserved.
+    </p>
+
+  </div>
+</footer>
 <script>
 if (window.innerWidth > 900) {
 
