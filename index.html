@@ -135,9 +135,25 @@ body {
   background: linear-gradient(90deg, var(--green), #059669);
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
+        /* BUTTONS explpre feature */
+        .btne {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            color: white;
+            margin-top: 24px
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+            transition: 0.3s;
+        }
 
+        .btne:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6); }
+/*-- MOBILE ---*/
+
+
+@media (max-width: 900px) {
   .story-wrap {
     grid-template-columns: 1fr;
   }
@@ -213,7 +229,7 @@ body {
 
 .footer-copy {
   color: #64748b;
-  font-size: 0.55rem;
+  font-size: 0.65rem;
 }
 </style>
 </head>
@@ -224,7 +240,7 @@ body {
   <div>
     <h1>AQUAMINDER</h1>
     <p>Scroll to experience a cinematic product journey</p>
-    <a href="#story" class="btn">Explore Features</a>
+    <a href="#story" class="btne">Explore Features</a>
   </div>
 </section>
 
@@ -243,15 +259,15 @@ body {
       <p>Track your hydration.</p>
     </section>
 
-    <section class="panel" data-image="red-bottle.png">
+    <section class="panel" data-image="black-bottle.png">
       <h2>15-Day Battery</h2>
-      <img src="red-bottle.png" class="mobile-bottle">
+      <img src="black-bottle.png" class="mobile-bottle">
       <p>Long-lasting performance.</p>
     </section>
 
-    <section class="panel" data-image="blue-bottle.png">
+    <section class="panel" data-image="red-bottle.png">
       <h2>Thermal Control</h2>
-      <img src="blue-bottle.png" class="mobile-bottle">
+      <img src="red-bottle.png" class="mobile-bottle">
       <p>24h cold / 12h hot.</p>
     </section>
 
