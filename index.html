@@ -25,196 +25,167 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO */
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(5,7,11,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 14px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  background: linear-gradient(90deg,#fff,#a855f7,#3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #cbd5f5;
+}
+
+.nav-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,#10b981,#059669);
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width:768px){
+  .nav-links{display:none;}
+}
+
+/* ================= HERO ================= */
 .hero {
   min-height: 100vh;
+  padding-top: 80px;
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 24px;
   position: relative;
-  overflow: hidden;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+  content:"";
+  position:absolute;
+  inset:0;
   background:
     linear-gradient(rgba(5,7,11,0.45), rgba(5,7,11,0.72)),
-    url('aquaminder-hero.jpg') center / cover no-repeat;
+    url('aquaminder-hero.jpg') no-repeat;
+  background-size: cover;
+  background-position: 49% center;
 }
 
-.hero > div {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
+.hero div {
+  position:relative;
+  z-index:1;
+  max-width:800px;
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
-  background: linear-gradient(90deg, white, var(--purple), var(--blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
+  font-size: clamp(2.5rem,6vw,5rem);
+  background: linear-gradient(90deg,#fff,#a855f7,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.hero p {
-  color: var(--muted);
-  font-size: clamp(1rem, 2vw, 1.3rem);
+.hero p { color: var(--muted); margin-top:10px;
+  margin-left:10px;
+  margin-right:10px;
 }
-@media (max-width: 900px) {
 
-  .hero::before {
-    background-position:49% center;
-  }
-
+.btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 30px;
+  border-radius:999px;
+  background: linear-gradient(90deg,#10b981,#059669);
+  color:white;
+  text-decoration:none;
 }
-/* LAYOUT */
+
+/* ================= STORY ================= */
 .story-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: 1400px;
-  margin: auto;
-  padding: 0 5%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  max-width:1400px;
+  margin:auto;
+  padding:0 5%;
 }
-
-.text-column { padding: 60px 0; }
 
 .panel {
-  border-left: 1px solid rgba(255,255,255,0.06);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 0 60px 24px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-left:24px;
+  border-left:1px solid rgba(255,255,255,0.06);
 }
 
-.panel h2 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  margin-bottom: 16px;
-}
+.panel h2 { font-size: clamp(2rem,4vw,3rem); }
+.panel p { color: var(--muted); max-width:500px; }
 
-.panel p {
-  color: var(--muted);
-  max-width: 500px;
-}
-
-/* BOTTLE */
 .bottle-column {
-  position: relative;
+  position:relative;
 }
 
 .sticky-bottle {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .sticky-bottle img {
-  width: min(34vw, 420px);
-  transition: all 0.6s ease;
+  width:min(34vw,420px);
+  transition:0.5s;
 }
 
 /* MOBILE BOTTLES */
 .mobile-bottle {
-  display: none;
+  display:none;
+  width:180px;
+  margin:20px auto;
 }
 
-/* CTA */
+/* ================= CTA ================= */
 .cta {
-  text-align: center;
-  padding: 120px 24px;
+  text-align:center;
+  padding:120px 20px;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 34px;
-  padding: 16px 40px;
-  border-radius: 999px;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(90deg, var(--green), #059669);
-}
-
-        /* BUTTONS explpre feature */
-        .btne {
-          margin-top: 50px;
-            display: inline-block;
-            background: linear-gradient(135deg, #a855f7, #3b82f6);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
-            transition: 0.3s;
-        }
-
-        .btne:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6); }
-/*-- MOBILE ---*/
-
-
-@media (max-width: 900px) {
-  .story-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .bottle-column {
-    display: none;
-  }
-
-  .panel {
-    min-height: auto;
-    padding: 40px 0;
-    border-left: none;
-    text-align: center;
-  }
-
-  .mobile-bottle {
-    display: block;
-    width: 180px;
-    margin: 20px auto;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-  }
-
-  .mobile-bottle.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ================= FOOTER ================= */
 .footer {
-  background: #03050a;
-  padding: 80px 24px 40px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  text-align:center;
+  padding:80px 20px 40px;
+  border-top:1px solid rgba(255,255,255,0.08);
 }
 
-.footer-container {
-  max-width: 900px;
-  margin: auto;
+.footer-logo {
+  font-size:2rem;
+  background:linear-gradient(90deg,#fff,#a855f7,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.footer h3 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #fff, #a855f7, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.footer-tagline {
-  color: #94a3b8;
-  margin-bottom: 30px;
-}
-
-.footer-links {
+.footer p { color:#94a3b8; margin:10px 0; }.footer-links {
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -237,71 +208,106 @@ body {
   color: #64748b;
   font-size: 0.65rem;
 }
-/*hero text align down*/
-.mspace{
-  margin-top:120px;
+
+
+/* ================= MOBILE ================= */
+@media (max-width:768px){
+
+  .story-wrap {
+    grid-template-columns:1fr;
+  }
+
+  .bottle-column {
+    display:none;
+  }
+
+  .panel {
+    min-height:auto;
+    padding:60px 20px;
+    text-align:center;
+    border:none;
+  }
+
+  .mobile-bottle {
+    display:block;
+  }
+}
+
+/* ================= TABLET ================= */
+@media (min-width:769px) and (max-width:1024px){
+  .sticky-bottle img {
+    width:min(40vw,320px);
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">AQUAMINDER</div>
+    <nav class="nav-links">
+      <a href="#story">Features</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="https://wa.me/919741471267" class="nav-btn">Order</a>
+  </div>
+</header>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="mspace">
+  <div>
     <h1>AQUAMINDER</h1>
-    <p>Smart RGB tracking that reminds you to drink water with a stunning glow</p>
-    <a href="#story" class="btne">Explore Features</a>
+    <p>Master your hydration with a cinematic RGB smart bottle engineered for performance, atmosphere, and all-day cold retention.</p>
+    <a href="#story" class="btn">Explore</a>
   </div>
 </section>
 
+<!-- STORY -->
 <section class="story-wrap" id="story">
-  <div class="text-column">
 
+  <div>
     <section class="panel" data-image="blue-bottle.png">
       <h2>RGB Glow</h2>
-      <img src="blue-bottle.png" class="mobile-bottle">
-      <p>Smart hydration reminders.</p>
+      <img class="mobile-bottle" src="blue-bottle.png">
+      <p>Smart glow reminders.</p>
     </section>
 
     <section class="panel" data-image="purple-bottle.png">
-      <h2>App Connectivity</h2>
-      <img src="purple-bottle.png" class="mobile-bottle">
-      <p>Track your hydration.</p>
-    </section>
-
-    <section class="panel" data-image="black-bottle.png">
-      <h2>15-Day Battery</h2>
-      <img src="black-bottle.png" class="mobile-bottle">
-      <p>Long-lasting performance.</p>
+      <h2>Bluetooth</h2>
+      <img class="mobile-bottle" src="purple-bottle.png">
+      <p>App connectivity.</p>
     </section>
 
     <section class="panel" data-image="red-bottle.png">
-      <h2>Thermal Control</h2>
-      <img src="red-bottle.png" class="mobile-bottle">
-      <p>24h cold / 12h hot.</p>
+      <h2>Battery</h2>
+      <img class="mobile-bottle" src="red-bottle.png">
+      <p>15-day battery.</p>
     </section>
-
   </div>
 
   <div class="bottle-column">
     <div class="sticky-bottle">
-      <img id="mainBottle" src="blue-bottle.png" />
+      <img id="mainBottle" src="blue-bottle.png">
     </div>
   </div>
+
 </section>
 
+<!-- CTA -->
 <section class="cta">
-  <h2>Upgrade Your Hydration</h2>
+  <h2>Upgrade Your Life</h2>
   <a href="https://wa.me/919741471267" class="btn">Order Now</a>
 </section>
+
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-container">
-
-    <h3>AQUAMINDER</h3>
-    <p class="footer-tagline">
-      Smart hydration. Premium lifestyle.
-    </p>
-
+  <h2 class="footer-logo">AQUAMINDER</h2>
+  <p>Smart hydration. Premium lifestyle.</p>
+  <p>abc@gmail.com</p>
+  
     <div class="footer-links">
       <a href="#story">Features</a>
       <a href="https://wa.me/919741471267">Order</a>
@@ -311,46 +317,25 @@ body {
     <p class="footer-copy">
      Pavan Kumar © 2026 Aquaminder. All rights reserved.
     </p>
-
-  </div>
-</footer>
+    </footer>
 <script>
-if (window.innerWidth > 900) {
-
+if (window.innerWidth > 768) {
   const bottle = document.getElementById('mainBottle');
   const panels = document.querySelectorAll('.panel');
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const newImage = entry.target.dataset.image;
-
-        bottle.style.opacity = '0';
-
+        bottle.style.opacity = 0;
         setTimeout(() => {
-          bottle.src = newImage;
-          bottle.style.opacity = '1';
-        }, 250);
+          bottle.src = entry.target.dataset.image;
+          bottle.style.opacity = 1;
+        }, 200);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.6 });
 
-  panels.forEach(panel => observer.observe(panel));
-}
-
-/* MOBILE FADE */
-if (window.innerWidth <= 900) {
-  const imgs = document.querySelectorAll('.mobile-bottle');
-
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.3 });
-
-  imgs.forEach(img => obs.observe(img));
+  panels.forEach(p => observer.observe(p));
 }
 </script>
 
