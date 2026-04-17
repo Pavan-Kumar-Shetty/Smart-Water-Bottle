@@ -234,14 +234,26 @@ body {
 }
 
 /* ================= TABLET ================= */
-@media (min-width:769px) and (max-width:1024px){
+/*@media (min-width:769px) and (max-width:1024px){
   .sticky-bottle img {
     width:min(40vw,320px);
   }
   .panel-p{
     text-align: ;
   }
-}
+}*/
+  @media (min-width: 769px) and (max-width: 1024px) {
+  .panel {
+    padding-left: 0; /* Removes the left lean */
+    align-items: center; /* Centers items horizontally */
+    text-align: center; /* Centers the text lines */
+  }
+  
+  .panel p {
+    margin: 0 auto; /* Centers the paragraph block */
+  }
+  }
+  
 </style>
 </head>
 
