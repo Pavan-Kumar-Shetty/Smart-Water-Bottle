@@ -44,7 +44,13 @@ body {
     linear-gradient(rgba(5,7,11,0.45), rgba(5,7,11,0.72)),
     url('aquaminder-hero.jpg') center / cover no-repeat;
 }
+@media (max-width: 900px) {
 
+  .hero::before {
+    background-position:47% center;
+  }
+
+}
 .hero > div {
   position: relative;
   z-index: 1;
@@ -137,10 +143,10 @@ body {
 
         /* BUTTONS explpre feature */
         .btne {
+          margin-top: 50px;
             display: inline-block;
             background: linear-gradient(135deg, #a855f7, #3b82f6);
             color: white;
-      
             padding: 15px 40px;
             text-decoration: none;
             border-radius: 50px;
@@ -231,15 +237,19 @@ body {
   color: #64748b;
   font-size: 0.65rem;
 }
+/*hero text align down*/
+.mspace{
+  margin-top:120px;
+}
 </style>
 </head>
 
 <body>
 
 <section class="hero">
-  <div>
+  <div class="mspace">
     <h1>AQUAMINDER</h1>
-    <p>Scroll to experience a cinematic product journey</p>
+    <p>Smart RGB tracking that reminds you to drink water with a stunning glow</p>
     <a href="#story" class="btne">Explore Features</a>
   </div>
 </section>
