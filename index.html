@@ -63,7 +63,13 @@ body {
   color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.3rem);
 }
+@media (max-width: 900px) {
 
+  .hero::before {
+    background-position:45% center;
+  }
+
+}
 /* LAYOUT */
 .story-wrap {
   display: grid;
