@@ -244,11 +244,13 @@ body {
 }*/
   @media (min-width:769px) and (max-width:1024px){
 
-  .panel {
-    text-align: center;
-    align-items: center;
-    padding-left: 0;
-  }
+.panel {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 24px;
+}
 
   .panel p {
     margin: 0 auto;
